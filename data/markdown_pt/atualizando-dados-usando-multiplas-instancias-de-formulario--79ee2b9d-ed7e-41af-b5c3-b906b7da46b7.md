@@ -1,0 +1,5 @@
+# Atualizando dados usando múltiplas instâncias de formulário
+
+Embora data sessions privadas gerem work areas separadas contendo cópias separadas das tabelas abertas, índices e relações de um formulário, cada cópia do formulário referencia as mesmas tabelas base e arquivos de índice base subjacentes. Quando um usuário atualiza um registro em uma instância de um formulário, a tabela base referenciada pelo formulário é atualizada. Você vê as alterações feitas em outra instância do formulário quando navega até o registro alterado.
+
+Locks obtidos em registros ou tabelas em uma data session privada são respeitados por outras data sessions privadas. Por exemplo, se o usuário da data session 1 obtém um lock em um registro, o usuário na data session 2 não pode bloquear o registro. Se o usuário na session 1 abre uma tabela de forma exclusiva, o usuário na data session 2 não pode abrir a tabela. Ao respeitar locks obtidos por outras data sessions, o Visual FoxPro protege a integridade das atualizações nas tabelas base subjacentes.

@@ -1,0 +1,49 @@
+---
+description: Consultar a documentação VFP9 via RAG antes de responder fatos técnicos
+alwaysApply: true
+---
+
+# Documentação VFP9 via RAG
+
+Para perguntas sobre **comandos, funções, propriedades, métodos, erros ou sintaxe** do Visual FoxPro 9, consulte o índice **antes** de responder. Não invente assinaturas, parâmetros ou comportamento. O modelo que gera a resposta é o do Cursor neste computador; o servidor da equipe só devolve trechos.
+
+Defina `VFP_RAG_URL` com o endereço do servidor (ex.: `http://192.168.1.20:8765`). Sem a variável, usa-se `http://127.0.0.1:8765`.
+
+## Como consultar
+
+**Uma consulta por pergunta.** Não repita a busca com outras formulações, outros `k`, nem `rag.py search` em seguida do `curl`. Cada `scripts/rag.py search` carrega o e5 nesta máquina (~2 s); o servidor já o tem em memória.
+
+Servidor da equipe (preferir):
+
+```bash
+curl -sG "${VFP_RAG_URL:-http://127.0.0.1:8765}/search" --data-urlencode "q=sua pergunta aqui" --data-urlencode "k=4"
+```
+
+Se o servidor não estiver no ar e existir um clone local desta pasta RAG, **uma** vez no índice local:
+
+```bash
+.venv/bin/python scripts/rag.py search "sua pergunta aqui" -k 4
+```
+
+Não rode `build` nem `embed` a menos que `data/markdown_pt/`, `topics.jsonl` ou as fichas PT tenham mudado.
+
+Não abra `data/markdown_pt/` nem faça grep no corpus se o RAG devolveu o tópico. Os trechos já são a página.
+
+## Quando usar
+
+- assinatura, parâmetros ou retorno de função/comando
+- diferença entre dois comandos (ex.: SEEK vs LOCATE)
+- significado de erro (ex.: erro 1429)
+- comportamento de SET, propriedades de objetos, etc.
+
+## Quando NÃO usar
+
+- editar código do repositório (scripts Python, notebooks)
+- decisões de arquitetura do projeto
+- perguntas sobre Cursor, Git ou ferramentas externas
+
+## Como responder
+
+1. Consulte o RAG **uma vez** com a pergunta (ou uma reformulação que cite o identificador VFP).
+2. Baseie a resposta **só** nos trechos recuperados, citando o título do tópico.
+3. Se nada relevante aparecer no top-4, diga que não encontrou na documentação — não confabule e não faça uma segunda busca.

@@ -1,0 +1,5 @@
+# Não é possível acessar a tabela selecionada (Erro 1152)
+
+Você tentou selecionar uma tabela fora do intervalo de área de trabalho de 32K ou está tentando referenciar uma variável de arquivo em uma tabela que não está aberta. Este erro pode ocorrer nas seguintes condições:
+ - Uma tabela ou cursor especificado para a propriedade RowSource de um controle ComboBox ou ListBox está fechado. Se você quiser fechar uma tabela ou cursor especificado para a propriedade RowSource de um controle ComboBox ou ListBox, execute uma das seguintes ações antes de fechar a tabela ou cursor: Defina a propriedade RowSource como um valor vazio (""). -OU- Libere o formulário contendo o controle ComboBox ou ListBox.
+- Uma instrução SQL SELECT que recria uma tabela ou cursor especificado pela propriedade RowSource é emitida. Quando a instrução SQL SELECT é executada, o Visual FoxPro fecha e abre a tabela. Para evitar este erro, defina a propriedade RowSource como um valor vazio (""), emita a instrução SQL SELECT e redefina a propriedade RowSource para seu valor anterior.

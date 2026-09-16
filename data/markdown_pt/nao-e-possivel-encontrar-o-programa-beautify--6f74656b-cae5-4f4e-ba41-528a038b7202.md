@@ -1,0 +1,4 @@
+# Não é possível encontrar o programa beautify.
+
+O Visual FoxPro não pode encontrar o programa chamado BEAUTIFY.APP porque o programa foi excluído, renomeado ou movido para fora do diretório principal do Visual FoxPro. Você pode:
+ - Executar a instalação do Visual FoxPro para instalar BEAUTIFY.APP.

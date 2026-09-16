@@ -1,0 +1,23 @@
+{
+  "source_positive": "/Users/joseluanfabrokaupka/Projetos/vfp9/HelpFile-master/ExemplosCodigo/exemplo.pr2",
+  "source_negative": "/Users/joseluanfabrokaupka/Projetos/vfp9/HelpFile-master/ExemplosCodigo/ExemplosNegativos.pr2",
+  "functions_positive": 221,
+  "examples_negative_source": 442,
+  "examples_total": 2431,
+  "examples_train": 2310,
+  "examples_val": 121,
+  "format": "messages",
+  "locale": "pt",
+  "val_ratio": 0.05,
+  "max_variants": 1,
+  "seed": 42,
+  "kinds": [
+    "codigo_correto",
+    "explicacao_positiva",
+    "gerar_codigo_correto",
+    "detectar_erro",
+    "avaliar_incorreto",
+    "corrigir_codigo",
+    "comparar_versoes"
+  ]
+}

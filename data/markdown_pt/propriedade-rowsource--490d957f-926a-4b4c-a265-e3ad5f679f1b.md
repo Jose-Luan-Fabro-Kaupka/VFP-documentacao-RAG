@@ -1,0 +1,121 @@
+# Propriedade RowSource
+
+Especifica a origem dos valores em um controle ComboBox ou ListBox. Leitura/gravação em tempo de design e em tempo de execução.
+
+> **Observação:** A propriedade RowSourceType determina a origem que você pode definir para a propriedade RowSource. É recomendável definir RowSourceType antes de definir RowSource . Para obter mais informações, consulte RowSourceType Property .
+
+```foxpro
+Control.RowSource [= cValue]
+```
+
+# Valor de retorno
+ **cValue**
+Especifica a origem dos valores exibidos no controle. Observação Ao definir a propriedade RowSource usando código, você deve colocar o valor entre aspas (""). A tabela a seguir lista os valores possíveis para cValue . cValue Descrição Nothing O controle é preenchido em tempo de execução usando o método AddItem ou AddListItem ou as propriedades List ou ListItem. (Padrão) Para obter mais informações, consulte AddItem Method , AddListItem Method , List Property e ListItem Property . Val1 , Val2 , Val3 ,... Uma lista de valores delimitada por vírgulas. O controle é preenchido com valores da lista delimitada por vírgulas. TableAlias O alias de uma tabela aberta. O controle é preenchido com valores dos campos na tabela. SQLSELECTStatement Uma instrução SQL SELECT que cria um cursor ou tabela, por exemplo, " SELECT * FROM Table ". O controle é preenchido com valores das colunas no cursor ou tabela criada pela instrução SQL. Observação Uma janela browse aparece quando a instrução SQL SELECT é executada. MyQueryFile .qpr O nome de um arquivo de consulta (.qpr). Observação Certifique-se de incluir a extensão de nome de arquivo .qpr. Uma janela Browse aparece quando a consulta é executada. O controle é preenchido com valores das colunas nos resultados da consulta. myArray O nome de um array. O controle é preenchido com valores do array. TableAlias.Field1 , Field2 , Field3 , ... Uma lista de campos delimitada por vírgulas de uma única tabela aberta, que pode ser precedida pelo alias da tabela e um ponto. O controle é preenchido com valores dos campos. A propriedade ColumnCount deve corresponder ao número de campos especificados. *. fileExt Um esqueleto de arquivo (por exemplo, "*.dbf" ou "*.txt") ou uma máscara. O controle é preenchido com nomes de arquivos do diretório atual, bem como opções para escolher uma unidade ou diretório diferente contendo os nomes de arquivos. TableName ou TableAlias O nome ou alias de uma tabela. O controle é preenchido com nomes de campos da tabela. Observação Quando RowSourceType está definido como 8, e se a propriedade RowSource estiver vazia, o controle é preenchido com nomes de campos da tabela atualmente selecionada. Caso contrário, se RowSource especifica o nome de uma tabela, um alias de tabela ou o nome do banco de dados, o controle é preenchido com nomes de campos da origem especificada. MenuName O nome de um menu. Incluído para compatibilidade com versões anteriores. CollectionName [, CollectionMemberProp [, CollectionMemberProp2 [, ...]]] CollectionName especifica uma cadeia de caracteres que é uma expressão, que avalia para um objeto Collection Visual FoxPro ou COM. Você também pode especificar propriedades de objetos na coleção. O controle é preenchido com valores das propriedades especificadas, bem como com outros membros da coleção que não são objetos. Observação Quando você especifica uma coleção e propriedades dos objetos na coleção para RowSource , o valor de cada propriedade é exibido como uma coluna separada. Membros da coleção que não são objetos são exibidos na primeira coluna. Observação Se você não especificar nenhuma propriedade para RowSource , o controle exibe outros membros da coleção que não são objetos e a cadeia de caracteres "(Object)" para cada objeto na coleção em uma única coluna. A cadeia de caracteres "(Object)" é retornada para a propriedade Value. Para obter mais informações, consulte Value Property .
+
+# Observações
+
+Aplica-se a: ComboBox Control | ListBox Control
+
+Você pode exibir várias colunas no controle definindo a propriedade ColumnCount. Os valores que você especifica para RowSource preenchem o controle, por linha, até o número de colunas especificado pela propriedade ColumnCount. Por exemplo, você pode exibir valores em várias colunas definindo RowSourceType como 1 (Value) e especificando os valores, separados por vírgulas, para cada coluna e linha da propriedade RowSource conforme mostrado no exemplo a seguir:
+
+```foxpro
+myListBox.ColumnCount = 2
+myListBox.RowSource = "Col1Row1,Col2Row1,Col1Row2,Col2Row2,Col2Row3"
+```
+
+No exemplo, nenhum valor é inserido entre o valor na coluna 2, linha 2 e o valor na coluna 2, linha 3, portanto nenhum valor é exibido na coluna 1, linha 3.
+
+Para especificar um alias para a tabela contendo as colunas, use a seguinte sintaxe:
+
+```foxpro
+myListBox.RowSource = Alias.Col1Row1,Col2Row1,Col1Row2,Col2Row2,Col2Row3
+```
+
+> **Observação:** Quando a propriedade ColumnCount está definida como 0 ou 1, o controle exibe apenas o primeiro item ou valor em uma única coluna. Caso contrário, o controle exibe cada item ou valor em uma coluna até o número de colunas especificado por ColumnCount . Você pode precisar definir a propriedade ColumnWidths para expandir a largura do controle para que os itens ou valores sejam exibidos corretamente.
+
+Para obter mais informações, consulte ColumnCount Property (Visual FoxPro), How to: Create Multicolumn List Boxes e Display Multiple Columns in a List Box Sample.
+
+Como o valor padrão da propriedade Value é numérico, se você deseja que a propriedade Value reflita a cadeia de caracteres do item selecionado em uma caixa de listagem ou combo box, defina a propriedade Value como uma cadeia de caracteres vazia (""). Para inserir uma cadeia de caracteres vazia na janela Properties, pressione a tecla SPACEBAR e depois a tecla BACKSPACE. Para obter mais informações, consulte Value Property e Properties Window (Visual FoxPro).
+
+# Exemplo
+
+### Exemplo 1
+
+O exemplo a seguir cria uma caixa de listagem em um formulário e especifica um array como origem dos itens na caixa de listagem. A propriedade RowSourceType é definida como 5 (Array) para especificar que um array é a origem dos itens na caixa de listagem, e o nome do array é especificado pela propriedade RowSource. A propriedade MultiSelect da caixa de listagem é definida como True (.T.) para que você possa fazer várias seleções na caixa de listagem.
+
+As etapas executadas neste exemplo aparecem da seguinte forma:
+ - Limpar a janela principal do Visual FoxPro usando o comando CLEAR.
+- Criar um array chamado gaMyListArray usando o comando DIMENSION.
+- Preencher o array com letras usando os comandos FOR...ENDFOR e STORE.
+- Criar um formulário usando a função CREATEOBJECT( ).
+- Desabilitar o botão Close na barra de título do formulário definindo a propriedade Closable.
+- Mover o formulário definindo a propriedade Move.
+- Adicionar um controle CommandButton baseado na classe definida pelo usuário cmdMyCmdButton chamando o método AddObject.
+- Adicionar um controle ListBox baseado na classe personalizada lstMyListBox chamando o método AddObject.
+- Especificar um array como tipo de origem de linha para a caixa de listagem definindo a propriedade RowSourceType.
+- Especificar o array gaMyListArray como origem de linha para a caixa de listagem definindo a propriedade RowSource.
+- Mostrar o botão de comando definindo a propriedade Visible.
+- Mostrar a caixa de listagem definindo a propriedade Visible.
+- Exibir o formulário chamando o método Show do formulário.
+- Iniciar o processamento de eventos chamando o comando READ EVENTS.
+- Definir a classe definida pelo usuário cmdMyCmdButton baseada no controle CommandButton usando o comando DEFINE CLASS. O código no comando DEFINE CLASS define propriedades para a classe definida pelo usuário e define procedimentos.
+- Definir a classe definida pelo usuário lstMyListBox baseada no controle ListBox usando o comando DEFINE CLASS. O código no comando DEFINE CLASS define propriedades para a classe definida pelo usuário e define procedimentos.
+
+```foxpro
+CLEAR
+DIMENSION gaMyListArray(10)
+FOR gnCount = 1 to 10
+   STORE REPLICATE(CHR(gnCount+64),6) TO gaMyListArray(gnCount)
+NEXT
+frmMyForm = CREATEOBJECT('Form')
+frmMyForm.Closable = .F.
+frmMyForm.Move(150,10)
+frmMyForm.AddObject('cmbCommand1','cmdMyCmdBtn')
+frmMyForm.AddObject('lstListBox1','lstMyListBox')
+frmMyForm.lstListBox1.RowSourceType = 5
+frmMyForm.lstListBox1.RowSource = 'gaMyListArray'
+frmMyForm.cmbCommand1.Visible =.T.
+frmMyForm.lstListBox1.Visible =.T.
+frmMyForm.Show
+READ EVENTS
+DEFINE CLASS cmdMyCmdBtn AS CommandButton
+   Caption = '\<Quit'
+   Cancel = .T.
+   Left = 125
+   Top = 210
+   Height = 25
+   PROCEDURE Click
+      CLEAR EVENTS
+      CLEAR
+ENDDEFINE
+DEFINE CLASS lstMyListBox AS ListBox
+   Left = 10
+   Top = 10
+   MultiSelect = .T.
+   PROCEDURE Click
+      ACTIVATE SCREEN
+      CLEAR
+      ? "Selected items:"
+      ? "---------------"
+      FOR nCnt = 1 TO ThisForm.lstListBox1.ListCount
+         IF ThisForm.lstListBox1.Selected(nCnt)
+            ? SPACE(5) + ThisForm.lstListBox1.List(nCnt)
+         ENDIF
+      ENDFOR
+ENDDEFINE
+```
+
+### Exemplo 2
+
+O exemplo a seguir explica como especificar uma coleção para a propriedade RowSource de uma caixa de listagem. Suponha que você crie uma coleção referenciada pela variável de memória oCustomerCol usando as seguintes etapas:
+ - Chamar o comando SCAN...ENDSCAN com a tabela Customers no banco de dados de amostra Northwind localizado no diretório ...\Samples\Northwind.
+- Chamar SCATTER...NAME para cada registro.
+- Adicionar o objeto criado pelo comando SCATTER à coleção.
+
+Você pode especificar a coleção referenciada por oCustomerCol e os campos de registro para a propriedade RowSource da seguinte forma:
+
+```foxpro
+lstmyListBox.RowSource = "colCustomerCol, CustID, Company, LastName"
+```
+
+Para mais exemplos, consulte How to: Choose the Type of Data for a List or Combo Box.

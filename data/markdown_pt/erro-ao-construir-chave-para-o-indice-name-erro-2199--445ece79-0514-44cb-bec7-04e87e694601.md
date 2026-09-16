@@ -1,0 +1,11 @@
+# Erro ao construir chave para o índice "name". (Erro 2199)
+
+Este erro é gerado quando o truncamento da chave de índice está prestes a ocorrer, normalmente durante a criação ou modificação de índice, como com o comando INDEX. Isso pode acontecer com o uso de uma chave que contém uma expressão envolvendo um campo Memo, cuja comprimento não é fixo, como no exemplo a seguir:
+
+`INDEX ON charfld1 + memofld1 TAG mytag`
+
+Um arquivo de índice com chaves de índice truncadas é uma fonte de resultados de dados potencialmente incorretos. O Visual FoxPro não permite truncamento de chave durante a criação ou modificação de índice. Quando o truncamento da chave de índice está prestes a ocorrer, este erro é relatado. Se você deseja truncamento de chave, deve ajustar a expressão de índice para truncar explicitamente a chave.
+
+Devido a problemas associados ao truncamento de chave, o mecanismo SQL (como durante um comando SQL SELECT ou criação de View) pode falhar ao construir um índice temporário para otimizar uma avaliação de junção se não conseguir determinar com precisão o tamanho máximo da chave. Isso pode fazer com que a junção seja avaliada como um produto cartesiano e, como resultado, pode afetar o desempenho. Para permitir que você diagnostique esse problema, uma mensagem é incluída no SQL ShowPlan, que é controlado pela função SYS(3054). Quando o valor desta função é maior ou igual a 11, a mensagem "Error building temporary index" é incluída no ShowPlan para indicar o problema de truncamento de chave. Você pode corrigir esse problema ajustando as condições de junção para tornar o tamanho da chave mais explícito e permitir que o índice temporário seja construído com sucesso.
+
+Ocasionalmente, o mecanismo SQL construirá um índice composto temporário (este é um índice especial criado internamente pelo produto e não é suportado pelo comando INDEX). Neste caso, algumas partes do índice podem causar truncamento de chave, enquanto outras podem não causar. Durante a primeira tentativa de construir o índice, as partes que causam problemas são identificadas. As partes problemáticas são então removidas da chave e o índice é construído novamente sem elas. O SQL ShowPlan indicará esse problema, mas ainda é possível que a junção possa ser otimizada usando somente as partes válidas.

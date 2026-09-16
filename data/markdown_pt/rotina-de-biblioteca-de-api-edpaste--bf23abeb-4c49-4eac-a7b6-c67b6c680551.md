@@ -1,0 +1,49 @@
+# Rotina de biblioteca de API _EdPaste( )
+
+Copia o conteúdo da área de transferência para o arquivo na janela de edição especificada, no ponto de inserção.
+
+```foxpro
+void _EdPaste(WHANDLE wh)
+WHANDLE wh;            /* Handle da janela de edição. */
+```
+
+# Exemplo
+
+O exemplo a seguir abre para edição um arquivo especificado por um parâmetro, copia o primeiro caractere para a área de transferência usando _EdCopy( ) e cola o caractere após o segundo caractere usando _EdPaste( ).
+
+### Código Visual FoxPro
+
+```foxpro
+SET LIBRARY TO EDPASTE
+= EDCOPY("x")
+```
+
+### Código C
+
+```foxpro
+#include <pro_ext.h>
+FAR Example(ParamBlk FAR *parm)
+{
+#define pFILENAME ((char FAR *) _HandToPtr(parm->p[0].val.ev_handle))
+   WHANDLE wh;
+   if (!_SetHandSize(parm->p[0].val.ev_handle,
+      parm->p[0].val.ev_length+1))
+   {
+      _Error(182); // "Insufficient memory"
+   }
+   pFILENAME[parm->p[0].val.ev_length] = '\0';
+   _HLock(parm->p[0].val.ev_handle);
+   wh = _EdOpenFile(pFILENAME, FO_READWRITE);
+   _HUnLock(parm->p[0].val.ev_handle);
+   _EdSelect(wh, 0, 1);
+   _EdCopy(wh);
+   _EdSetPos(wh, 2);
+   _EdPaste(wh);
+}
+FoxInfo myFoxInfo[] = {
+   {"EDCOPY", (FPFI) Example, 1, "C"},
+};
+FoxTable _FoxTable = {
+   (FoxTable FAR *) 0, sizeof(myFoxInfo)/sizeof(FoxInfo), myFoxInfo
+};
+```

@@ -1,0 +1,11 @@
+# Janela Coverage Profiler
+
+Contém um grupo de botões de ferramenta e opções do Coverage Profiler que permitem especificar como exibir as informações retornadas pelo Coverage Engine.
+ **Painel Source List**
+O painel superior Source List é dividido em duas colunas. A coluna à esquerda lista as classes no arquivo selecionado ou All Classes, Objects e Processes. A coluna à direita exibe o arquivo que contém o código-fonte desse item. Esse arquivo pode ser um .frx, .lbx, .scx ou .vcx que contenha a classe ou o objeto listado no painel esquerdo, o arquivo .prg da seleção ALL Classes ou qualquer outro tipo de arquivo que armazene código-fonte. Por exemplo, um .dbc pode ser listado se procedimentos armazenados tiverem sido registrados; um .frx pode ser listado se o Data Environment de um formulário de relatório contiver código.
+**Painel Source Code**
+O painel inferior Source Code (no modo Preview) exibe o código do item selecionado no painel superior Source List. O modo selecionado determina parte do conteúdo e o formato do código exibido.
+**Modo Coverage**
+No modo Coverage, o painel Source Code exibe o código do item realçado na seção superior. O Coverage Profiler pode marcar as linhas executadas e as linhas não executadas. A configuração padrão marca, com o símbolo ou os símbolos especificados na caixa de diálogo Coverage Profiler Options, cada linha que não foi realmente executada. Use esse modo ao testar seu aplicativo para verificar quais linhas de código são realmente executadas. Ao marcar tanto as linhas executadas quanto as não executadas (com marcas diferentes), você pode distinguir mais facilmente linhas que nunca são executadas, como comentários, das linhas que não foram executadas durante essa análise de cobertura.
+**Modo Profile**
+No modo Profile, o painel Source Code exibe o código do item realçado no painel superior Source List, o número de vezes que uma linha foi atingida e a duração de cada linha. Use esse modo para avaliar o desempenho da execução do código. As linhas podem relatar duração 0.000 (tanto em 1st quanto em Avg), embora a primeira coluna mostre 1 ou mais Hits para essas linhas. Isso ocorre quando as linhas são executadas tão rapidamente que a duração é inferior a 0,001 segundo.

@@ -1,0 +1,14 @@
+# Controles e conceitos de dados
+
+Você pode ter dois tipos de controles em seus formulários: controles que estão vinculados a dados e controles que não estão. Quando os usuários interagem com controles vinculados, os valores que eles digitam ou escolhem são armazenados na fonte de dados, que pode ser um campo de tabela, um campo de cursor ou uma variável. Você vincula um controle a dados definindo sua propriedade ControlSource Property, ou, no caso de grades, sua propriedade RecordSource Property.
+
+Se você não definir a propriedade ControlSource de um controle, o valor que o usuário digita ou escolhe no controle é armazenado apenas como uma configuração de propriedade. O valor não é gravado em disco nem armazenado na memória além da vida útil do controle.
+ Efeito da configuração da propriedade ControlSource nos controles
+| Control | Effect |
+| --- | --- |
+| Check box | Se ControlSource é um campo em uma tabela, então valores NULL, valores lógicos verdadeiro (.T.) ou falso (.F.), ou valores numéricos 0, 1 ou 2 no campo ControlSource fazem a caixa de seleção ser selecionada, desmarcada ou acinzentada conforme o ponteiro de registro se move pela tabela. |
+| Column | Se ControlSource é um campo de tabela, o usuário está editando diretamente o campo ao editar valores na coluna. Para vincular uma grade inteira a dados, defina a propriedade RecordSource da grade. |
+| List box ou Combo box | Se ControlSource é uma variável, o valor que o usuário escolhe na lista é armazenado na variável. Se o ControlSource é um campo em uma tabela, o valor é armazenado no campo no ponteiro de registro. Se um item na lista corresponde ao valor do campo na tabela, o item é selecionado na lista quando o ponteiro de registro se move pela tabela. |
+| Option button | Se ControlSource é um campo numérico, 0 ou 1 é gravado no campo, dependendo se o botão é escolhido ou não. Se ControlSource é lógico, .T. ou .F. é gravado no campo, dependendo se o botão é escolhido. Se o ponteiro de registro se move na tabela, o valor do botão de opção é atualizado para refletir o novo valor no campo. Se ControlSource do controle OptionGroup do botão de opção (não o botão de opção em si) é um campo character, o caption do botão de opção é armazenado no campo se o botão de opção é escolhido. Observe que a fonte de controle de um botão de opção (distinto de um controle OptionGroup) não pode ser um campo character, ou o Visual FoxPro reportará incompatibilidade de tipo de dados quando o formulário for executado. |
+| Spinner | O spinner reflete e grava valores numéricos no campo ou variável subjacente. |
+| Text box ou Edit box | O valor no campo da tabela é exibido na caixa de texto. As alterações que o usuário faz neste valor são gravadas de volta na tabela. Mover o ponteiro de registro afeta a propriedade Value da caixa de texto. |

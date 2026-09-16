@@ -1,0 +1,52 @@
+# Comando LABEL
+
+Envia etiquetas de um arquivo de etiqueta (lbx) para a saída especificada.
+
+O comando LABEL pode interpretar arquivos de relatório do Visual FoxPro (formato .frx) bem como arquivos de etiqueta. Você também pode usar LABEL para executar arquivos de etiqueta baseados em caracteres criados no FoxPro for MS-DOS.
+
+```foxpro
+LABEL [FORM FileName1 | FORM ?] [ENVIRONMENT] [Scope]
+   [FOR lExpression1] [WHILE lExpression2] [NOOPTIMIZE]
+   [RANGE nStartPage [, nEndPage]]
+   [NOCONSOLE | OFF ] [SAMPLE] [PDSETUP]
+   [NAME ObjectName]
+   [OBJECT oReportListener | TYPE iExpression]
+   [TO PRINTER [PROMPT] | TO FILE FileName2]
+   [PREVIEW [PreviewDestination] [NOWAIT] [WINDOW WindowName]]
+```
+
+#### Parâmetros
+ **[FORM FileName1 | FORM ?]**
+Especifica o nome do arquivo de etiqueta ou exibe a caixa de diálogo Open para que você possa selecionar um arquivo de etiqueta existente. A extensão de arquivo padrão para etiquetas é .lbx. Observação Se o arquivo de etiqueta estiver em uma unidade ou volume diferente do padrão ou em um diretório diferente do diretório atual, você também deve especificar a unidade e o diretório. Chamar LABEL sem argumentos abre a caixa de diálogo Open.
+**[ENVIRONMENT]**
+Incluído para compatibilidade com versões anteriores com etiquetas 2. x. Para obter mais informações, consulte Controlling Data in Reports . Dica Você pode restaurar o ambiente de dados associado a uma etiqueta Visual FoxPro definindo a propriedade AutoOpenTables do ambiente de dados como True (.T.). Para garantir que o ambiente de etiqueta seja fechado quando a impressão de etiquetas terminar, defina a propriedade AutoCloseTables como True (.T.). Para obter mais informações, consulte AutoOpenTables Property e AutoCloseTables Property .
+**[ Scope ]**
+Especifica um intervalo de registros. Inclui apenas os registros que caem dentro do intervalo. As cláusulas de escopo são: ALL , NEXT < nRecords >, RECORD < nRecordNumber > e REST . O escopo padrão para LABEL é ALL records. Observação Quando você inclui uma cláusula Scope, o escopo opera apenas na tabela na área de trabalho ativa. Para obter mais informações sobre cláusulas de escopo, consulte Scope Clauses .
+**[FOR lExpression1 ]**
+Especifica uma condição pela qual apenas os registros que satisfazem a condição lógica lExpression1 são incluídos. Este argumento permite filtrar registros que você não deseja incluir. Rushmore Query Optimization otimiza uma consulta criada com LABEL ... FOR se lExpression1 for uma expressão otimizável. Para obter o melhor desempenho, use uma expressão otimizável na cláusula FOR. Para obter mais informações, consulte SET OPTIMIZE Command e Using Rushmore Query Optimization to Speed Data Access .
+**[WHILE lExpression2 ]**
+Especifica uma condição em que registros são incluídos enquanto a expressão lógica lExpression2 avalia como True (.T.).
+**[NOOPTIMIZE]**
+Desabilita Rushmore Query Optimization de LABEL . Para obter mais informações, consulte SET OPTIMIZE Command e Using Rushmore Query Optimization to Speed Data Access .
+**[RANGE nStartPage [, nEndPage ]]**
+Especifica um intervalo de páginas a imprimir ou outra saída. O parâmetro nStartPage especifica a primeira página a imprimir, enquanto o parâmetro nEndPage especifica a última página a imprimir. Se nEndPage for omitido, a última página a imprimir assume o padrão 32.767. RANGE seleciona páginas para saída, enquanto cláusulas de escopo, FOR e WHILE selecionam registros. Esses critérios de seleção não têm efeito se você escolher imprimir a partir da visualização, a menos que tenha especificado o modo assistido por objetos usando a cláusula OBJECT ou SET REPORTBEHAVIOR 90 . No modo assistido por objetos, você pode imprimir o RANGE completo que especificou no comando LABEL original ou algum subconjunto desse intervalo de páginas, usando os membros PrintPageCurrent, PrintRangeFrom e PrintRangeTo do ReportListener.CommandClauses. Para obter mais informações, consulte OnPreviewClose Method .
+**[NOCONSOLE | OFF]**
+Suprime a exibição de etiquetas na janela principal do Visual FoxPro ou em uma janela definida pelo usuário ao imprimir etiquetas ou enviá-las para um arquivo. Quando você usa o modo de saída assistido por objetos do Visual FoxPro 9.0, LABEL não exibe o conteúdo da sua etiqueta na janela de saída atual, portanto as palavras-chave NOCONSOLE e OFF não têm efeito sobre o comportamento nativo. No entanto, as palavras-chave estão disponíveis no objeto ReportListener.CommandClauses. Você pode avaliá-las em suas classes derivadas de ReportListener e optar por suprimir uma exibição do conteúdo da etiqueta ou outro feedback do usuário com base em seu conteúdo. Para obter mais informações, consulte CommandClauses Property .
+**[SAMPLE]**
+Se você usar etiquetas baseadas em caracteres criadas no FoxPro for MS-DOS, SAMPLE pode ser usado para testar o alinhamento de etiquetas. O ponteiro de registro não se move durante testes de alinhamento SAMPLE Se você usar a palavra-chave SAMPLE, o prompt Do you want more samples? aparece depois que uma etiqueta de amostra é impressa. Escolha Yes para testar novamente o alinhamento da etiqueta. SAMPLE é ignorado para etiquetas gráficas criadas no Visual FoxPro.
+**[PDSETUP]**
+Carrega uma configuração de driver de impressora. Você pode incluir PDSETUP para usar uma configuração de driver de impressora para imprimir etiquetas baseadas em caracteres criadas no FoxPro for MS-DOS. PDSETUP é ignorado quando você imprime etiquetas gráficas criadas no Visual FoxPro.
+**[NAME ObjectName ]**
+Especifica um nome de variável de objeto para o ambiente de dados de uma etiqueta. O ambiente de dados e os objetos no ambiente de dados têm propriedades e métodos, por exemplo AddObject , que precisam ser definidos ou chamados em tempo de execução. A variável de objeto fornece acesso a essas propriedades e métodos. Se você omitir a cláusula NAME, o Visual FoxPro usa como padrão o nome do arquivo de etiqueta que pode ser referenciado no código associado aos eventos.
+**[OBJECT oReportListener | TYPE iExpression ]**
+Invoca o modo de saída assistido por objetos do Visual FoxPro. Use uma referência de objeto a um objeto derivado da classe base ReportListener ou um valor numérico especificando um tipo de saída. Para obter mais informações, consulte ReportListener Object , ListenerType Property e OutputType Property (Visual FoxPro) . A cláusula OBJECT em um comando LABEL individual tem precedência sobre a configuração atual de SET REPORTBEHAVIOR .
+**[TO PRINTER [PROMPT] | TO [FILE] FileName2 [[ADDITIVE] ASCII]**
+Envia o arquivo de etiqueta para a impressora ou envia etiquetas para um arquivo de texto especificado com FileName2 com a extensão de arquivo padrão .txt. A palavra-chave PROMPT exibe a caixa de diálogo Print antes do início da impressão. No modo assistido por objetos, as opções habilitadas na caixa de diálogo Print são afetadas pelo valor do membro ReportListener.CommandClauses.PrintPageCurrent. Quando você omite a palavra-chave ASCII ou usa o modo de saída assistido por objetos do Visual FoxPro, grava códigos PostScript ou de outra impressora no arquivo de texto junto com o conteúdo do layout da etiqueta. Para criar um arquivo de texto ASCII a partir do arquivo de definição de etiqueta, SET REPORTBEHAVIOR 80 e inclua a palavra-chave ASCII. Observação Quando você inclui a palavra-chave ASCII, pode processar etiquetas em um computador que não tenha configurações de driver de impressora instaladas. Sem a palavra-chave ASCII, um comando LABEL emitido em um computador que não tenha configurações de driver de impressora instaladas gera um erro. Um arquivo ASCII contém apenas texto. Quaisquer configurações de fonte ou cor, gráficos, linhas, retângulos ou retângulos arredondados no arquivo de definição de etiqueta não aparecem no arquivo de texto ASCII. Para anexar novo conteúdo a um arquivo ASCII em vez de sobrescrevê-lo, preceda a palavra-chave ASCII com a palavra-chave ADDITIVE. As palavras-chave ADDITIVE e ASCII devem ser especificadas na ordem mostrada. Omitir a palavra-chave ASCII ou usar o modo de saída assistido por objetos do Visual FoxPro grava códigos PostScript ou de outra impressora no arquivo de texto.
+**[PREVIEW [ PreviewDestination ] [NOWAIT] [WINDOW WindowName ]]**
+Exibe as etiquetas em uma janela de visualização em vez de imprimir as etiquetas. Por padrão, a janela de visualização é modal, mas fornece acesso à barra de ferramentas Print Preview. A palavra-chave NOWAIT especifica que o Visual FoxPro não aguarda em tempo de execução o fechamento da janela de visualização antes de continuar a execução do programa. Dica Relatórios e etiquetas baseados em caracteres criados no FoxPro MS-DOS têm uma janela de visualização especial baseada em caracteres. Este mecanismo não é afetado por SET REPORTBEHAVIOR e não suporta a cláusula OBJECT ou cláusulas relacionadas a WINDOW . Se você incluir WINDOW < WindowName >, a janela de visualização assume as características da janela, como título, tamanho e assim por diante, que você especifica com WindowName . WindowName pode ser a propriedade name de um objeto form ou pode ser uma variável referenciando uma janela criada com DEFINE WINDOW . Para obter mais informações, consulte DEFINE WINDOW Command . A tabela a seguir descreve os valores possíveis para PreviewDestination . Você pode usar a cláusula WINDOW sozinha ou em combinação com PreviewDestination . PreviewDestination Description [IN WINDOW WindowName ] Specifies a window for previewing a label layout. If you include IN WINDOW < WindowName >, the label is previewed in the window you specify with WindowName . IN SCREEN Specifies that the preview displays in the main Visual FoxPro window and cannot be moved outside it.
+
+# Observações
+
+Você pode criar arquivos de etiqueta usando o comando CREATE LABEL Command ou MODIFY LABEL Command.
+
+Quando você usa o modo de saída assistido por objetos do Visual FoxPro, todas as cláusulas do comando LABEL FORM estão disponíveis para seu ReportListener em seu objeto membro CommandClauses, com exceção das cláusulas de seleção de registros (escopo, FOR e WHILE). Você pode usar o atributo CommandClauses.RecordTotal para obter informações sobre o escopo da execução de etiquetas, ou atribuir esses valores ao seu objeto ReportListener antes de executar suas etiquetas. O tópico CommandClauses Property fornece mais informações sobre como cada cláusula é representada no objeto membro CommandClauses.

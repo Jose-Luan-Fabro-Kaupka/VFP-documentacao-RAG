@@ -1,0 +1,38 @@
+{
+  "routines": 219,
+  "modules": {
+    "APP/CLIENTE.PRG": 541,
+    "APP/DADOS.PRG": 160,
+    "APP/PRODUTO.PRG": 306,
+    "APP/VENDA.PRG": 148,
+    "LIB/ARQUIVO.PRG": 179,
+    "LIB/DATA.PRG": 247,
+    "LIB/MATRIZ.PRG": 347,
+    "LIB/NUMERO.PRG": 371,
+    "LIB/SISTEMA.PRG": 209,
+    "LIB/TEXTO.PRG": 459,
+    "UI/FORMULARIO.PRG": 164
+  },
+  "traces_total": 843,
+  "traces_train": 800,
+  "traces_val": 43,
+  "kinds": {
+    "corrigir": 438,
+    "localizar": 219,
+    "adicionar": 161,
+    "inspecionar": 25
+  },
+  "kinds_val": {
+    "corrigir": 22,
+    "adicionar": 9,
+    "localizar": 11,
+    "inspecionar": 1
+  },
+  "dropped_over_budget": 0,
+  "tokens_p50": 685,
+  "tokens_p95": 1072,
+  "tokens_max": 1467,
+  "tool_format": "openai",
+  "tools_in_system": false,
+  "max_tokens": 3000
+}

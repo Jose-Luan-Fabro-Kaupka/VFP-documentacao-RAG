@@ -1,0 +1,62 @@
+{
+  "weights": {
+    "help": 1,
+    "sig": 1,
+    "code": 1,
+    "agent": 1
+  },
+  "excluded": [
+    "help"
+  ],
+  "leaked_val_rows_dropped": 0,
+  "inputs": {
+    "sig": {
+      "train": 2299,
+      "val": 121,
+      "weight": 1,
+      "train_after_weight": 2299
+    },
+    "code": {
+      "train": 2310,
+      "val": 121,
+      "weight": 1,
+      "train_after_weight": 2310
+    },
+    "agent": {
+      "train": 800,
+      "val": 43,
+      "weight": 1,
+      "train_after_weight": 800
+    }
+  },
+  "train": {
+    "rows": 5409,
+    "by_source": {
+      "code": 2310,
+      "sig": 2299,
+      "agent": 800
+    },
+    "multi_turn_rows": 800,
+    "rows_with_tools": 800,
+    "answers_with_pt_accents": 5050,
+    "answers_with_code": 4969,
+    "chars_p50": 962,
+    "chars_p95": 3731,
+    "approx_tokens_total": 2074401
+  },
+  "val": {
+    "rows": 285,
+    "by_source": {
+      "code": 121,
+      "sig": 121,
+      "agent": 43
+    },
+    "multi_turn_rows": 43,
+    "rows_with_tools": 43,
+    "answers_with_pt_accents": 267,
+    "answers_with_code": 262,
+    "chars_p50": 985,
+    "chars_p95": 3926,
+    "approx_tokens_total": 116806
+  }
+}

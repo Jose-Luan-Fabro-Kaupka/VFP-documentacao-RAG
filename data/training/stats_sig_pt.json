@@ -1,0 +1,20 @@
+{
+  "topics": 4557,
+  "cards": 2425,
+  "examples_total": 2420,
+  "examples_train": 2299,
+  "examples_val": 121,
+  "train_topics": 2299,
+  "val_topics": 121,
+  "kinds": {
+    "ficha": 2420
+  },
+  "cards_with_parameters": 1077,
+  "cards_with_returns": 965,
+  "parameters_total": 2883,
+  "chars_total": 828297,
+  "chars_prose_to_translate": 640701,
+  "max_variants": 1,
+  "val_ratio": 0.05,
+  "seed": 42
+}

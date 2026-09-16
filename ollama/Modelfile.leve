@@ -1,0 +1,23 @@
+# Variante econômica do modelo já registrado, para máquinas sem RAM sobrando.
+#
+#   ollama create vfp9-leve -f Modelfile.leve
+#
+# Derive do modelo local em vez de um .gguf: evita uma segunda cópia de 5 GB
+# no disco.
+#
+# Ainda assim, os 5,03 GB de pesos continuam lá. Isto reduz o que está em volta
+# deles (~500 MB), não o modelo. Em 8 GB de RAM só funciona com o resto fechado.
+
+FROM vfp-qwen3-8b
+
+# 2048 acomoda o prompt do RAG (~600 tokens) e uma resposta curta. Combinado
+# com OLLAMA_KV_CACHE_TYPE=q8_0, o cache cai de ~590 MB para ~147 MB.
+PARAMETER num_ctx 2048
+
+# Teto na resposta: sem isso, uma geração longa enche o contexto e o cache
+# cresce até o limite acima.
+PARAMETER num_predict 400
+
+PARAMETER temperature 0.2
+PARAMETER top_p 0.9
+PARAMETER repeat_penalty 1.05

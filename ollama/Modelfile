@@ -1,0 +1,20 @@
+# Registro do modelo VFP9 no Ollama.
+#
+#   ollama create vfp9 -f Modelfile
+#
+# Baixe o .gguf gerado por exportar_gguf_colab.ipynb e deixe-o nesta pasta.
+# Em máquina com 8 GB de RAM, prefira o q3_k_m: o q4_k_m cabe, mas fica no
+# limite e o sistema começa a paginar assim que o contexto cresce.
+
+FROM ./vfp9-qwen3-8b-q3_k_m.gguf
+
+# num_ctx domina o consumo de memória depois dos pesos: a cada 1024 tokens de
+# contexto o Qwen3-8B reserva ~150 MB de cache. 4096 acomoda o prompt do RAG
+# (~600 tokens) com folga para uma resposta longa.
+PARAMETER num_ctx 4096
+
+# Respostas factuais e determinísticas; o modelo deve copiar a documentação,
+# não improvisar em cima dela.
+PARAMETER temperature 0.2
+PARAMETER top_p 0.9
+PARAMETER repeat_penalty 1.05

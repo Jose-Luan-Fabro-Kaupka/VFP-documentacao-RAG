@@ -1,0 +1,487 @@
+{
+  "total_files": 4786,
+  "batch_size": 50,
+  "batches": 96,
+  "items": [
+    {
+      "batch_id": "0000",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0001",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0002",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0003",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0004",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0005",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0006",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0007",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0008",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0009",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0010",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0011",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0012",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0013",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0014",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0015",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0016",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0017",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0018",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0019",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0020",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0021",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0022",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0023",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0024",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0025",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0026",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0027",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0028",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0029",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0030",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0031",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0032",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0033",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0034",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0035",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0036",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0037",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0038",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0039",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0040",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0041",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0042",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0043",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0044",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0045",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0046",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0047",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0048",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0049",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0050",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0051",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0052",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0053",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0054",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0055",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0056",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0057",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0058",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0059",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0060",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0061",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0062",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0063",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0064",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0065",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0066",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0067",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0068",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0069",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0070",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0071",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0072",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0073",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0074",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0075",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0076",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0077",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0078",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0079",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0080",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0081",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0082",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0083",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0084",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0085",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0086",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0087",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0088",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0089",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0090",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0091",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0092",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0093",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0094",
+      "count": 50,
+      "status": "pending"
+    },
+    {
+      "batch_id": "0095",
+      "count": 36,
+      "status": "pending"
+    }
+  ]
+}

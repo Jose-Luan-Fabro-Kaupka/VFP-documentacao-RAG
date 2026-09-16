@@ -1,0 +1,4 @@
+# Comprimento de chave inválido (Erro 112)
+
+- Se você criou uma chave de índice que excede os seguintes limites, crie uma chave de índice mais curta. O comprimento de uma chave de índice para um índice ou índice compilado (.idx) deve estar entre 1 e 100 caracteres. O comprimento para um índice composto (.cdx) deve estar entre 1 e 240 caracteres. Para determinadas sequências de classificação ou ao usar caracteres de conjuntos de caracteres de byte duplo (DBCS), cada caractere no parâmetro eExpression no comando INDEX usa dois caracteres na chave de índice. Nesses casos, o comprimento de eExpression é limitado a 120 caracteres.
+- Se você criou uma chave de índice com comprimento 0, certifique-se de que o primeiro registro dos campos nos quais você baseia o índice contenha alguns dados. Quando o Visual FoxPro cria um índice, ele avalia os campos no primeiro registro da tabela.

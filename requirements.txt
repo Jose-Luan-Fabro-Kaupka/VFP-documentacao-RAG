@@ -1,0 +1,14 @@
+# Dependências de scripts/rag.py, nas versões validadas em macOS/Apple Silicon.
+#
+#   python3 -m venv .venv
+#   .venv/bin/pip install -r requirements.txt
+#
+# transformers, tokenizers, scipy e scikit-learn entram como dependências
+# transitivas de sentence-transformers e não são fixadas aqui de propósito.
+#
+# torch é necessário mesmo sem GPU: é o backend do modelo de embeddings. Em
+# Apple Silicon ele usa MPS, o que reduz a indexação de ~30 min para ~3,5 min.
+
+numpy==2.5.2
+torch==2.13.0
+sentence-transformers==6.0.0

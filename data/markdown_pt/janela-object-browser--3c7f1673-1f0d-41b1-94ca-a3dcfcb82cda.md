@@ -1,0 +1,37 @@
+# Janela Object Browser
+
+A janela Object Browser exibe as classes, propriedades, métodos, eventos e constantes disponíveis para bibliotecas de objetos COM. You can use it to find and use objects you create, as well as objects from other applications.
+
+Para iniciar a janela Object Browser no menu Tools, escolha Object Browser e abra uma biblioteca COM para visualizar.
+
+The Object Browser application is referenced by _OBJECTBROWSER system variable (which by default references objectbrowser.app). You can set this from the File Locations tab of the Options dialog box.
+ **Classes & Members pane**
+Lista as classes, membros, interfaces, enums, constantes e outras informações disponíveis na biblioteca de tipos da classe. To display members of each category, expand the category.
+**Members pane**
+Lista os detalhes do membro do item selecionado no painel Classes & Members. If a class is selected, its events, methods, and properties are displayed.
+**Descrição pane**
+Exibe a definição do item selecionado, a sintaxe do protótipo e um hiperlink para a classe, biblioteca ou tipo ao qual o item pertence. Some members have hyperlinks to their parent class. When an interface is selected, the description pane includes the Interface ID number. You can copy or drag text from the description pane to the editing window.
+**Open Type Library button**
+Displays the Open Type Library dialog box so you can select a particular COM Component or ActiveX Control. To display a list of recently opened libraries, click the down arrow.
+**Open Type Library dialog box**
+Appears when you click the Open Type Library button or right-click the Object Browser and then click Open. Name Descrição Recent History tab Displays a list of recently opened libraries. To add a library to the Object Browser, select the check box next to the library. To clear all content in the Recent History list, click Clear History. COM Libraries tab Shows a list of all available COM class libraries on your system. The list includes libraries for COM components and ActiveX controls. The first time you click this tab, the COM libraries are read from your system registry and cached to a local FoxRefs.dbf table. When you click the tab again, libraries are read from this table. To reload all class libraries from your system, click the Refresh button. To select and load an individual library (.tlb, .ocx, .olb, .dll, .exe), click Browse to open a file picker dialog box. Current Selection Tab Displays a list of all open libraries. To close individual libraries, clear the check box next to the library name. To close all libraries, click Close All.
+**Back button**
+Moves selection focus back to the last item that you viewed.
+**Forward button**
+Moves selection focus to the item you were viewing before clicking the Back button.
+**Refresh button**
+Refreshes the contents of the Object Browser by reloading the selected libraries. This is useful for frequently changing COM components under development. Additionally, cached libraries are refreshed.
+**Copy button**
+Makes it possible for you to copy the selected item in the current list. If there is no explicit selection in the Descrição pane, the entire text is copied.
+**Find button**
+Displays the Find view so you can enter a specific text string to search for within the libraries opened in the Object Browser.
+**Find view**
+Expands at the top of the Object Browser when you click the Find button. Use the Find view to search for a specific text phrase in the library. Name Descrição Look for: textbox Enter text for which to search. The default search includes all opened libraries, all their members, and any item that contains the search text. Go button Click button to search for text entered in the text box. When you click this button a new node is added for each opened library to the Classes & Members pane with expression "(Search: <searchtext>)" appended to the end of the library. You can refine search using the Advanced view. Switch to advanced find... link Displays additional search options to perform a more refined search. Libraries dropdown Limits search to all opened libraries or just a single one. Advanced Find view only. Scope dropdown Limits search to members of all libraries or just a single one. The list of available options includes Classes, Constants, Enums, Interfaces, Methods, Events, and Properties. Advanced Find view only. Options dropdown Determines how text search is made. Options include Contained in, Starts with, and Exactly like. Advanced Find view only.
+**Options button**
+Displays the Options dialog box so that you can control various display options. You can also set custom add-ins for use with the Object Browser.
+**Display Options tab, Options dialog box**
+This tab in the Options dialog box makes it possible for you to control the visual aspects of the Object Browser. Name Descrição Highlight Potential Sources of Events check box Especifica whether a potential source of events (interface or method) is highlighted. Highlight Default Items check box Especifica whether default items are highlighted using a bold font style. Display Hidden Items check box Especifica whether hidden items (such as interface, methods, and properties) are displayed. Auto Expand Details check box Especifica whether top-level items in the detail pain are expanded automatically. Auto Drill Down Details check box Especifica whether complex hierarchies in the Methods pane (such as methods and properties for each interface) are expanded automatically. Display VTable Interfaces check box Especifica whether VTable based interfaces and their members are displayed. List all interfaces defining a method, event, or property in detail check box Especifica whether all interfaces defining a method or property are listed in the Descrição pane. Display properties that start with an underscore (_) check box Properties that start with an underscore are usually placeholders for enums (a collections of constants). For this reason, they are not displayed by default. Display members that are defined in IUnknown or IDispatch check box All COM objects have methods that are defined in the IDispatch and IUnknown interfaces. These methods must be there to work in a COM environment; however, they usually are not useful directly to the Visual FoxPro developer. List members parameters in detail check box Method parameters can be listed directly in the Members pane. However, note that the parameters are listed in more detail in the Descrição pane. List interfaces in class details check box All creatable classes are based on one or more interfaces. Often interfaces listed in the Members pane simply show the same information as the entire class, but sometimes they provide more insight. Show Interface Inheritance structure check box Especifica whether inherited interfaces shall be displayed in the Members pane. Font button Especifica font for interface elements of the Object Browser.
+**Add Ins tab, Options dialog box**
+This tab in the Options dialog box makes it possible for you to add custom add-ins. Name Descrição Install Add-In button Installs a new add-in. Installed Add-Ins list Displays all loaded add-ins. Remove button This button is displayed in the Add-Ins list next to an installed add-in. Click this button to remove an add-in. The add-in file is not actually deleted.
+**Help button**
+Displays documentation on the selected member. In addition, you can press F1.

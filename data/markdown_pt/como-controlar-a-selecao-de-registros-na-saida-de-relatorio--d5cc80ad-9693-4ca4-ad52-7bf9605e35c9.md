@@ -1,0 +1,18 @@
+# Como: controlar a seleção de registros na saída de relatório
+
+Ao imprimir um relatório, você pode controlar os registros incluídos especificando qualquer combinação dos seguintes:
+ - Quantidade de registros a incluir no relatório.
+- Intervalo de registros sequenciais a processar.
+- Critérios de seleção que os registros devem atender.
+- Condições necessárias para continuar processando registros sequenciais para o relatório.
+
+Este tópico mostra como controlar a seleção de registros ao imprimir pela interface do usuário. Quando você usa o comando REPORT FORM ou LABEL para imprimir, pode especificar esses critérios usando cláusulas de escopo no comando. Para obter mais informações, consulte REPORT FORM Command ou LABEL Command.
+
+### Para controlar a seleção de registros em um relatório
+- Escolha a opção Print… no menu File e selecione Report ou Label como o Type de saída a imprimir na caixa de diálogo Print. Clique no botão de reticências (...) para escolher o arquivo de relatório ou etiqueta (.frx ou .lbx) a imprimir. Alternativamente, abra o relatório ou etiqueta no designer apropriado e clique em Run Report no menu Report.
+- Na caixa de diálogo Print, clique em Options.
+- Na caixa de diálogo Print Options, clique em Options.
+- Na caixa de diálogo Report and Label Print Options, especifique as configurações desejadas: Para especificar uma quantidade ou intervalo de registros, na caixa Scope, escolha a configuração de escopo desejada. O escopo padrão, All, processa todos os registros. Ao escolher Next ou Record, você digita ou escolhe um número na caixa à direita da caixa Scope para especificar um número sequencial de registros ou um número de registro único. Quando você escolhe o escopo Rest, o Visual FoxPro processa todos os registros da posição atual do ponteiro de registro até o restante dos registros no arquivo. Observação Os resultados para All, Next e Rest são influenciados pela ordem de índice atual da tabela. Os resultados para Record não são influenciados pela ordem de índice atual porque o ponteiro de registro não se move. Os resultados para todas as quatro opções podem ser ainda mais limitados pelos outros tipos de critérios de registro nesta caixa de diálogo. Para especificar critérios de seleção de registros para registros não sequenciais, use a caixa For. Digite uma expressão com a qual os registros devem ser comparados. Para construir uma expressão, certifique-se de que as fontes de dados usadas pelo relatório estão abertas e clique no botão de reticências (...) para abrir o Expression Builder. Para especificar condições a serem atendidas para continuar processando registros sequencialmente, use a caixa While. O Visual FoxPro processa registros enquanto a condição que você digita na caixa While avalia como True ( .T. ). Para construir uma expressão, clique no botão de reticências (...) para abrir o Expression Builder. Dica Se você especificar uma condição While para um arquivo que não está indexado, o processo de seleção pode terminar antes de avaliar todos os registros apropriados. Antes de imprimir o relatório, certifique-se de que a tabela de origem contém um índice ativo e apropriado para a condição que deseja usar. Defina o ponteiro de registro para um registro que satisfaça sua condição While.
+- Quando terminar, clique em OK. Dica Tanto condições While quanto critérios de seleção For podem incluir variáveis, bem como dados de tabelas. Você pode alterar o conteúdo das variáveis dinamicamente durante a execução do relatório ou etiqueta.
+
+Para obter mais informações, consulte Report and Label Print Options Dialog Box e Expression Builder Dialog Box
