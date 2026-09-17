@@ -151,11 +151,8 @@ Isso carrega o e5 a cada chamada (~2 s). No dia a dia, prefira o `serve` da equi
 | `data/rag/` | Índice e embeddings (o que o `serve` lê) |
 | `data/markdown_pt/` | Páginas de ajuda em português |
 | `data/topics.jsonl` | Catálogo de tópicos |
-| `data/training/` | Fichas de assinatura |
+| `data/training/` | Fichas de assinatura usadas no `build` |
 | `scripts/rag.py` | Busca, índice e API HTTP |
 | `.cursor/rules/` | Regra para colar no projeto FoxPro |
-| `ollama/` | Modelfiles (resposta local, opcional) |
-| `exemplos/` | Programas FoxPro de exemplo |
-| `notebooks/` | Colab / export GGUF |
 
-Não há markdown em inglês nesta cópia. O Help File original (HTML/CHM) permanece no repositório da ajuda, se você ainda o tiver.
+Não há markdown em inglês, notebooks, treino de LLM nem scripts de extração/tradução nesta cópia.
