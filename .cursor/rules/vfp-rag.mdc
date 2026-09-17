@@ -5,24 +5,32 @@ alwaysApply: true
 
 # Documentação VFP9 via RAG
 
-Para perguntas sobre **comandos, funções, propriedades, métodos, erros ou sintaxe** do Visual FoxPro 9, consulte o índice **antes** de responder. Não invente assinaturas, parâmetros ou comportamento. O modelo que gera a resposta é o do Cursor neste computador; o servidor da equipe só devolve trechos.
+Para perguntas sobre **comandos, funções, propriedades, métodos, erros ou sintaxe** do Visual FoxPro 9, consulte o índice **antes** de responder. Não invente assinaturas, parâmetros ou comportamento. O modelo que gera a resposta é o do Cursor neste PC Windows; o servidor da equipe (Linux ou Windows) só devolve trechos.
 
-Defina `VFP_RAG_URL` com o endereço do servidor (ex.: `http://192.168.1.20:8765`). Sem a variável, usa-se `http://127.0.0.1:8765`.
+Defina a variável de usuário `VFP_RAG_URL` com o endereço do servidor (ex.: `http://192.168.1.20:8765`) e reabra o Cursor. Sem a variável, usa-se `http://127.0.0.1:8765`.
+
+No Windows use sempre **`curl.exe`**. O comando `curl` no PowerShell é o Invoke-WebRequest e não serve.
 
 ## Como consultar
 
-**Uma consulta por pergunta.** Não repita a busca com outras formulações, outros `k`, nem `rag.py search` em seguida do `curl`. Cada `scripts/rag.py search` carrega o e5 nesta máquina (~2 s); o servidor já o tem em memória.
+**Uma consulta por pergunta.** Não repita a busca com outras formulações, outros `k`, nem `rag.py search` em seguida do `curl.exe`. Cada `scripts/rag.py search` carrega o e5 neste PC (~2 s); o servidor já o tem em memória.
 
 Servidor da equipe (preferir):
 
-```bash
-curl -sG "${VFP_RAG_URL:-http://127.0.0.1:8765}/search" --data-urlencode "q=sua pergunta aqui" --data-urlencode "k=4"
+```bat
+curl.exe -sG "%VFP_RAG_URL%/search" --data-urlencode "q=sua pergunta aqui" --data-urlencode "k=4"
+```
+
+No PowerShell:
+
+```powershell
+curl.exe -sG "$env:VFP_RAG_URL/search" --data-urlencode "q=sua pergunta aqui" --data-urlencode "k=4"
 ```
 
 Se o servidor não estiver no ar e existir um clone local desta pasta RAG, **uma** vez no índice local:
 
-```bash
-.venv/bin/python scripts/rag.py search "sua pergunta aqui" -k 4
+```bat
+.venv\Scripts\python.exe scripts\rag.py search "sua pergunta aqui" -k 4
 ```
 
 Não rode `build` nem `embed` a menos que `data/markdown_pt/`, `topics.jsonl` ou as fichas PT tenham mudado.
